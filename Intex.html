@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent & Soul | Legendary Fragrances</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #D4AF37; --black: #111; --gray: #1a1a1a; }
+        body { background: var(--black); color: white; font-family: 'Lato', sans-serif; margin: 0; }
+        
+        /* Hero Section */
+        header { 
+            height: 80vh; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--gold); margin-bottom: 10px; }
+        
+        /* Product Path Area */
+        .container { padding: 50px 20px; max-width: 1200px; margin: auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .perfume-card { 
+            background: var(--gray); border: 1px solid #333; padding: 20px; text-align: center;
+            transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .perfume-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .perfume-card img { width: 100%; height: 350px; object-fit: cover; border-radius: 2px; }
+        .price { color: var(--gold); font-size: 1.4rem; letter-spacing: 2px; }
+        
+        .btn { 
+            background: transparent; border: 1px solid var(--gold); color: var(--gold); 
+            padding: 12px 30px; cursor: pointer; transition: 0.3s; text-transform: uppercase;
+        }
+        .btn:hover { background: var(--gold); color: black; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SCENT & SOUL</h1>
+    <p>The Essence of Immortality</p>
+</header>
+
+<div class="container">
+    <div class="grid" id="product-list">
+        </div>
+</div>
+
+<script>
+    /* THE PRODUCT UPLOAD PATH */
+    /* Simply add a new item to this list to "upload" a product! */
+    const perfumes = [
+        { name: "Oud Royale", price: "$250", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=400&q=80" },
+        { name: "Midnight Rose", price: "$180", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=400&q=80" },
+        { name: "Gold Dust", price: "$320", img: "https://images.unsplash.com/photo-1557177324-56c542165309?auto=format&fit=crop&w=400&q=80" }
+    ];
+
+    const list = document.getElementById('product-list');
+    perfumes.forEach(p => {
+        list.innerHTML += `
+            <div class="perfume-card">
+                <img src="${p.img}" alt="${p.name}">
+                <h3 style="font-family: 'Playfair Display'">${p.name}</h3>
+                <p class="price">${p.price}</p>
+                <button class="btn">Discover More</button>
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
